@@ -1,0 +1,14 @@
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\bin\Debug\net8.0\practice.exe
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\bin\Debug\net8.0\practice.deps.json
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\bin\Debug\net8.0\practice.runtimeconfig.json
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\bin\Debug\net8.0\practice.dll
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\bin\Debug\net8.0\practice.pdb
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\practice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\practice.AssemblyInfoInputs.cache
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\practice.AssemblyInfo.cs
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\practice.csproj.CoreCompileInputs.cache
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\practice.dll
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\refint\practice.dll
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\practice.pdb
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\practice.genruntimeconfig.cache
+C:\Bjørnar\Work\Coding\Learning\C#\c#projects\practice\obj\Debug\net8.0\ref\practice.dll
