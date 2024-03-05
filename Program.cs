@@ -8,7 +8,7 @@ List<string> completedTasks = new List<string>();
 while (quit == false)
 {
   
-
+    Console.Clear(); //clears console before every iteration of the loop.
     Console.WriteLine("What do you wish to do?");
     Console.WriteLine("Press 1. Add task\nPress 2. View current tasks\nPress 3. Delete Tasks\nPress 4. Complete tasks\nPress 5. Quit program");
     string userInput = Console.ReadLine(); 
@@ -17,7 +17,7 @@ while (quit == false)
     switch(userInput)
     {
         case "1":  
-             
+             Console.Clear();
             Console.WriteLine("How many tasks do you wish to add?");
             while(true)
              {
@@ -39,21 +39,8 @@ while (quit == false)
 
 
         case "2":
-            int taskLoop = 1;
-            int taskLoopComplete = 1;
             Console.WriteLine("You pressed 2");
-            foreach(string o in tasks)
-            {  
-                Console.WriteLine($"Task {taskLoop}: " + o);
-                taskLoop++;  
-            }
-
-            Console.WriteLine("These are the completed tasks.");
-            foreach(string o in completedTasks)                  //Displays the completed tasks. 
-            {        
-                Console.WriteLine($"Task {taskLoopComplete}: " + o);
-                taskLoopComplete++;
-            }
+            showTask(tasks,completedTasks);
             break;
 
         case "3":
@@ -79,6 +66,7 @@ while (quit == false)
 
 string addTask()
 {
+
     Console.WriteLine("Please add a task you want to write");
     string userTask = Console.ReadLine(); 
     return userTask; 
@@ -86,7 +74,7 @@ string addTask()
 
 void removeTask(List<string> selectedTask)
 {
-   
+     Console.Clear();   
      int taskLoop = 1;
      Console.WriteLine("These are your current tasks");
      foreach(string o in selectedTask)                  //Displays the current created tasks. 
@@ -95,49 +83,21 @@ void removeTask(List<string> selectedTask)
         taskLoop++;
      }
      
-
-     Console.WriteLine("Select which task you wish to remove");
+    Console.Write("\n");
+     Console.WriteLine("Select which task you wish to remove, or press \"x\" to go back");
         while(true)
         {
-                if (int.TryParse(Console.ReadLine(), out int userInput))
+                string userInput = Console.ReadLine();
+                if (userInput == "x")
                 {
-                    selectedTask.RemoveAt(userInput); 
                     break;
                 }
-
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid integer.");
-                }
-        }
-}
-
-void completeTask(List<string> selectedTask, List<string> completedTasks) //function for adding a checkmark to completed tasks.
-{
-     int taskLoopComplete = 1;   
-     int taskLoop = 1;
-     Console.WriteLine("These are your current tasks.");
-     foreach(string o in selectedTask)                  //Displays the current created tasks. 
-     {        
-        Console.WriteLine($"Task {taskLoop}: " + o);
-        taskLoop++;
-     }
-     Console.WriteLine("These are the completed tasks.");
-     foreach(string o in completedTasks)                  //Displays the completed tasks. 
-     {        
-        Console.WriteLine($"Task {taskLoopComplete}: " + o);
-        taskLoopComplete++;
-     }
-
-    Console.WriteLine("Which tasks do you wish to mark as completed?");
-     while (true)  
-                {
-                    if (int.TryParse(Console.ReadLine(), out int checkedTask))
+                    if (int.TryParse(userInput, out int numberUserInput))
                     {
-                        string convertTask = selectedTask[checkedTask];
-                        completedTasks.Add(convertTask + " (x)");
-                        selectedTask.RemoveAt(checkedTask);
-                    break;
+                        selectedTask.RemoveAt(numberUserInput); 
+                        break;
                     }
 
                     else
@@ -145,8 +105,103 @@ void completeTask(List<string> selectedTask, List<string> completedTasks) //func
                         Console.WriteLine("Invalid input. Please enter a valid integer.");
                     }
                 }
+                
+        }
+}
+
+void completeTask(List<string> selectedTask, List<string> completedTasks) //function for adding a checkmark to completed tasks.
+{
+     Console.Clear();
+     int taskLoopComplete = 1;   
+     int taskLoop = 1;
+     Console.WriteLine("These are your current tasks.");
+
+     foreach(string o in selectedTask)                  //Displays the current created tasks. 
+     {        
+        Console.WriteLine($"Task {taskLoop}: " + o);
+        taskLoop++;
+     }
+     Console.Write("\n");
+
+     if(completedTasks.Count == 0)
+     {
+        Console.WriteLine("You have no completed tasks");
+        Console.Write("\n");
+     }
+     else
+     {
+        Console.WriteLine("These are your completed tasks.");
+        foreach(string o in completedTasks)                  //Displays the completed tasks. 
+        {        
+            Console.WriteLine($"Task {taskLoopComplete}: " + o);
+            taskLoopComplete++;
+        }
+       Console.Write("\n");
+     }
+     
+
+    Console.WriteLine("Select which task you wish to complete, or press \"x\" to go back");
+     while (true)  
+                {
+                    string userInput = Console.ReadLine();
+                if (userInput == "x")
+                {
+                    break;
+                }
+                else
+                {
+                    if (int.TryParse(userInput, out int checkedTask))
+                    {
+                       checkedTask--;
+                        /* Console.WriteLine("This is the task you chose to delete " + selectedTask[checkedTask]); */
+                        string convertTask = selectedTask[checkedTask];
+                        completedTasks.Add(convertTask + " (x)");
+                        selectedTask.RemoveAt(checkedTask);
+                        break;
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a valid integer.");
+                    }
+                }
+
+                }
     
 }
 
+void showTask(List<string> selectedTask, List<string> completedTasks)
+{
+            Console.Clear(); 
+            int taskLoop = 1;
+            int taskLoopComplete = 1;
+            Console.WriteLine("These are your tasks.");
+            foreach(string o in selectedTask)
+            {  
+                Console.WriteLine($"Task {taskLoop}: " + o);
+                taskLoop++;  
+            }
 
+            Console.Write("\n");
+
+         if(completedTasks.Count == 0)
+     {
+        Console.WriteLine("You have no completed tasks");
+        Console.Write("\n");
+     }
+     else
+     {
+        Console.WriteLine("These are your completed tasks.");
+        foreach(string o in completedTasks)                  //Displays the completed tasks. 
+        {        
+            Console.WriteLine($"Task {taskLoopComplete}: " + o);
+            taskLoopComplete++;
+        }
+        Console.Write("\n");
+     }
+     Console.WriteLine("Press any key to continue...");
+     Console.ReadKey();
+
+            
+}
 
